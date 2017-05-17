@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="/static/css/reset.css">
+	<link rel="stylesheet" href="/static/css/all.css">
+	<title><%= title %></title>
+</head>
+<body>
+	<div id="app" :style="'width:'+ screenWidth +'px;overflow: hidden;'">
+		<div class="top">
+			<a href="javascript:history.back();" class="top__back"></a>
+			<span class="top__title"><%= nav %></span>
+			<div class="search">
+				<input type="text" v-model="str" @keyup.enter="search">
+				<span @click="search" class="btn">搜索</span>
+			</div>
+		</div>
+		<div id="app-main">
+			<div class="container-wrap">
+				<div class="container-scroll" :style="'width: '+ screenWidth +'px;'">
+					<div class="search-tags" v-if="init">
+						<ul>
+							<li @click="searchthis">123</li>
+							<li @click="searchthis">斗破苍穹</li>
+							<li @click="searchthis">盗墓笔记</li>
+							<li @click="searchthis">见习魔法师</li>
+							<li @click="searchthis">诛仙</li>
+						</ul>
+					</div>
+					<div class="results" v-if="!init">
+						<div class="book" v-for="book in result.items" @click="goto">
+							<img :src="book.cover" :alt="book.title">
+							<div class="info">
+								<h3>{{book.title}}</h3>
+								<p>{{book.role[0][1]}}</p>
+								<p>{{book.intro}}</p>
+							</div>
+						</div>
+					</div>
+					<div class="no-result" v-show="noresult">
+						<p>无结果!</p>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+	<script src="/static/js/vue.js"></script>
+	<!-- <script src="/static/js/zepto.js"></script> -->
+	<script src="/static/js/vue-resource.min.js"></script>
+	<script src="/static/js/pages/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<section class="top-home">
+	<a href="/search">
+		<div class="top-home__search">输入书名/作者/关键字</div>
+	</a>
+	<div class="slider-banner" v-for="(item,index) in d.top" v-if="index==0">
+		<div>
+			<a :href="item.reference_id">
+				<img class="cover" :src="item.ad_pic_url" :alt="item.ad_name">
+			</a>
+		</div>
+	</div>
+	<ul class="top-home__btn">
+		<li>
+			<a href="/male">
+				<img class="top-home__icon" src="http://image.read.duokan.com/mfsv2/download/s010/p015iBxwdkmU/5wc5uzYhLZ7iVa.png" alt="">
+				<p class="top-home__desc">男生</p>
+			</a>
+		</li>
+		<li>
+			<a href="/female">
+				<img class="top-home__icon" src="http://image.read.duokan.com/mfsv2/download/s010/p01LWZmXGCpy/aSrSq6Llgt9PqE.png" alt="">
+				<p class="top-home__desc">女生</p>
+			</a>
+		</li>
+		<li>
+			<a href="/category">
+				<img class="top-home__icon" src="http://image.read.duokan.com/mfsv2/download/s010/p01pz5NtyRI0/2ENONnvOg23NXM.png" alt="">
+				<p class="top-home__desc">分类</p>
+			</a>
+		</li>
+		<li>
+			<a href="/rank">
+				<img class="top-home__icon" src="http://image.read.duokan.com/mfsv2/download/s010/p010kK7M5VyH/8kPz9nKvRXyu1k.png" alt="">
+				<p class="top-home__desc">排行</p>
+			</a>
+		</li>
+	</ul>
+</section>
